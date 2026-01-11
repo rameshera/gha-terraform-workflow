@@ -6,7 +6,7 @@ terraform {
   backend "s3" {
     bucket = "gha-terraform-jhc"
     key = "dev/terraform.tfstate"
-    region = "ap-south-1"
+    region = "us-east-1"
   }
 }
 
