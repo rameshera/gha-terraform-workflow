@@ -22,11 +22,11 @@ jobs:
             - name: Setup Terraform
               uses: hashicorp/setup-terraform@v3
               with:
-                terraform_version: 1.8.5
+                terraform_version: 1.14.3
             - name: AWS access using OIDC
               uses: aws-actions/configure-aws-credentials@v4
               with:
-                role-to-assume: arn:aws:iam::646057972714:role/gihub-oidc-udemy-course
+                role-to-assume: arn:aws:iam::779563210855:role/GA-AssumedRole
                 role-session-name: github-actions
                 aws-region: us-east-1
             - name: Terraform init
@@ -47,11 +47,11 @@ jobs:
             - name: Setup Terraform
               uses: hashicorp/setup-terraform@v3
               with:
-                terraform_version: 1.8.5
+                terraform_version: 1.14.3
             - name: AWS access using OIDC
               uses: aws-actions/configure-aws-credentials@v4
               with:
-                role-to-assume: arn:aws:iam::646057972714:role/gihub-oidc-udemy-course
+                role-to-assume: arn:aws:iam::779563210855:role/GA-AssumedRole
                 role-session-name: github-actions
                 aws-region: us-east-1
             - name: Terraform init

@@ -1,32 +1,32 @@
-name: Terraform Prod Deploy
-on:
-    push:
-        branches:
-            - main
-permissions:
-    id-token: write
-    contents: read
-jobs:
-    prod_apply:
-        runs-on: ubuntu-latest
-        defaults:
-            run:
-                working-directory: prod
-        steps:
-            - name: Check Repo
-              uses: actions/checkout@v4
-            - name: Setup Terraform
-              uses: hashicorp/setup-terraform@v3
-              with:
-                terraform_version: 1.8.5
-            - name: AWS access using OIDC
-              uses: aws-actions/configure-aws-credentials@v4
-              with:
-                role-to-assume: arn:aws:iam::646057972714:role/gihub-oidc-udemy-course
-                role-session-name: github-actions
-                aws-region: ap-south-1
-            - name: Terraform init
-              run: terraform init
-            - name: Terraform Apply
-              run: terraform apply -auto-approve -var-file=prod.tfvars
+# name: Terraform Prod Deploy
+# on:
+#     push:
+#         branches:
+#             - main
+# permissions:
+#     id-token: write
+#     contents: read
+# jobs:
+#     prod_apply:
+#         runs-on: ubuntu-latest
+#         defaults:
+#             run:
+#                 working-directory: prod
+#         steps:
+#             - name: Check Repo
+#               uses: actions/checkout@v4
+#             - name: Setup Terraform
+#               uses: hashicorp/setup-terraform@v3
+#               with:
+#                 terraform_version: 1.8.5
+#             - name: AWS access using OIDC
+#               uses: aws-actions/configure-aws-credentials@v4
+#               with:
+#                 role-to-assume: arn:aws:iam::646057972714:role/gihub-oidc-udemy-course
+#                 role-session-name: github-actions
+#                 aws-region: ap-south-1
+#             - name: Terraform init
+#               run: terraform init
+#             - name: Terraform Apply
+#               run: terraform apply -auto-approve -var-file=prod.tfvars
         
